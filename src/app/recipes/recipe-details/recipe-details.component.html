@@ -11,7 +11,7 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click) = "addToSl()">To Shopping List</button>
     <button mat-menu-item [routerLink]="['edit']" routerLinkActive="router-link-active" >Edit Recipe</button>
-    <button mat-menu-item>Delete Recipe</button>
+    <button mat-menu-item (click)="onDelete()">Delete Recipe</button>
   </mat-menu>
   <div class="description">
     <p>{{ recipe.description }}</p>

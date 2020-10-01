@@ -1,7 +1,7 @@
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -29,5 +29,9 @@ export class RecipeDetailsComponent implements OnInit {
 
   addToSl(): void {
     this.recipeService.addToShoppingList(this.recipe.ingredient);
+  }
+
+  onDelete(): void{
+    this.recipeService.deleteRecipe(this.id);
   }
 }

@@ -1,12 +1,14 @@
-import { ShoppingListService } from './../shopping-list/shopping-list.service';
-import { Ingredient } from './../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 import { Injectable } from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
+  recipesChanged = new Subject<Recipe[]>();
   private recipes: Recipe[] = [
     new Recipe(
       'Tasty Schnitzel',
@@ -32,7 +34,7 @@ export class RecipeService {
         new Ingredient('Bacon', 1),
         new Ingredient('Lettuce', 2),
         new Ingredient('Tomato', 2),
-        new Ingredient('Pickels', 3),
+        new Ingredient('Pickles', 3),
       ]
     ),
   ];
@@ -50,4 +52,20 @@ export class RecipeService {
   addToShoppingList(ingredients: Ingredient[]): void {
     this.slService.addIngredients(ingredients);
   }
+
+  addRecipe(recipe: Recipe): void{
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe): void{
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(id: number): void{
+    this.recipes.splice(id, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
 }

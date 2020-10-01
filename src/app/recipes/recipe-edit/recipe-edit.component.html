@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="recipeForm" (ngSubmit) = "onSubmit()">
   <div>
-    <button type="submit" mat-flat-button color="primary">Save</button>
-    <button type="button" mat-flat-button color="warn">Cancel</button>
+    <button type="submit" mat-flat-button color="primary" [disabled]="!recipeForm.valid" r>Save</button>
+    <button type="button" mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
   </div>
 
   <mat-form-field appearance="outline">
@@ -13,6 +13,17 @@
       id="name"
       name="name"
       formControlName="name"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Subtitle</mat-label>
+    <input
+      matInput
+      type="text"
+      id="subtitle"
+      name="subtitle"
+      formControlName="subtitle"
     />
   </mat-form-field>
 
@@ -48,5 +59,8 @@
       <input matInput type="number" id="amount" name="amount" formControlName="amount"/>
     </mat-form-field>
     <button type="button" class="btnX" mat-flat-button color="warn">X</button>
+  </div>
+  <div class="addBtn">
+    <button type="button" mat-flat-button color="primary" (click)="onAddIngredient()">Add Ingredient</button>
   </div>
 </form>
