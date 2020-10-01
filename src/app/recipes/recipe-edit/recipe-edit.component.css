@@ -1,0 +1,28 @@
+button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+mat-form-field {
+  display: block;
+}
+
+.ingredient{
+  display: flex;
+  align-items: center;
+}
+
+.ingredient mat-form-field{
+    margin-right: 30px;
+}
+
+.inputIngredient{
+    width:80%;
+}
+
+.inputAmount{
+    width:10%;
+}
+
+.btnX{
+    margin-right: 0;
+}

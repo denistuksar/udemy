@@ -1,0 +1,36 @@
+mat-card {
+  cursor: pointer;
+}
+
+mat-card {
+  margin-bottom: 10px;
+  height: 90%;
+}
+
+:host /deep/ .mat-card-header-text {
+    margin: 0;
+}
+
+mat-divider {
+  margin-bottom: 10px;
+}
+
+mat-card img {
+  object-fit: cover;
+  height: 50%;
+}
+
+.router-link-active{
+  background-color: #4154B3;
+  color:white;
+}
+
+.router-link-active .mat-card-subtitle{
+  color:white;
+}
+
+mat-card:active, mat-card:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}

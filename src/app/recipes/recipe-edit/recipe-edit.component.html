@@ -1,0 +1,52 @@
+<form class="form" [formGroup]="recipeForm" (ngSubmit) = "onSubmit()">
+  <div>
+    <button type="submit" mat-flat-button color="primary">Save</button>
+    <button type="button" mat-flat-button color="warn">Cancel</button>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Pizza"
+      type="text"
+      id="name"
+      name="name"
+      formControlName="name"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Image URL</mat-label>
+    <input
+      matInput
+      type="text"
+      id="url"
+      name="url"
+      formControlName="imagePath"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea
+      rows="8"
+      matInput
+      type="text"
+      id="description"
+      name="description"
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="ingredient" formArrayName="ingredients" *ngFor="let ingredientCtrl of controls; let i = index">
+    <mat-form-field appearance="outline" class="inputIngredient" [formGroupName]="i">
+      <input matInput type="text" id="ingredient" name="ingredient" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="inputAmount" [formGroupName]="i">
+      <input matInput type="number" id="amount" name="amount" formControlName="amount"/>
+    </mat-form-field>
+    <button type="button" class="btnX" mat-flat-button color="warn">X</button>
+  </div>
+</form>

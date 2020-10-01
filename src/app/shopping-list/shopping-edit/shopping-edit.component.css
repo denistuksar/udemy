@@ -1,0 +1,10 @@
+mat-form-field, .mat-flat-button {
+  margin-right: 1rem;
+}
+mat-form-field{
+    width:100%;
+}
+.clear{
+    background-color: black;
+    color:white;
+}
