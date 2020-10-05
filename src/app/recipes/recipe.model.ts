@@ -11,12 +11,12 @@ export class Recipe {
     subtitle: string,
     desc: string,
     imagePath: string,
-    ingredients: Ingredient[]
+    ingredient: Ingredient[]
   ) {
     this.name = name;
     this.subtitle = subtitle;
     this.description = desc;
     this.imagePath = imagePath;
-    this.ingredient = ingredients;
+    this.ingredient = ingredient;
   }
 }

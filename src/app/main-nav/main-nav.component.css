@@ -63,3 +63,8 @@ a {
   padding-top: 24px;
   padding-bottom: 21px;
 }
+
+.manageText{
+  color: black;
+  cursor: pointer;
+}

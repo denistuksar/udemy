@@ -27,3 +27,8 @@ mat-form-field {
     margin-right: 0;
 }
 
+.imagePreview{
+  object-fit: cover;
+  height: 300px;
+  width: 500px;
+}

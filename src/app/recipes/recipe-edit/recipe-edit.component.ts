@@ -16,8 +16,9 @@ export class RecipeEditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {
   }
 
-  get controls(): any { // a getter!
-    return (this.recipeForm.get('ingredients') as FormArray).controls;
+  // tslint:disable-next-line:typedef
+  get controls() { // a getter!
+    return (this.recipeForm.get('ingredient') as FormArray).controls;
   }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onAddIngredient(): void {
-    (this.recipeForm.get('ingredients') as FormArray).push(
+    (this.recipeForm.get('ingredient') as FormArray).push(
       new FormGroup({
         name: new FormControl(null, Validators.required),
         amount: new FormControl(null, [
@@ -57,6 +58,10 @@ export class RecipeEditComponent implements OnInit {
         ])
       })
     );
+  }
+
+  onDeleteIngredient(id: number): void {
+    (this.recipeForm.get('ingredient') as FormArray).removeAt(id);
   }
 
   private initForm(): void {
@@ -92,7 +97,7 @@ export class RecipeEditComponent implements OnInit {
       subtitle: new FormControl(recipeSubtitle, Validators.required),
       imagePath: new FormControl(recipeImagePath, Validators.required),
       description: new FormControl(recipeDescription, Validators.required),
-      ingredients: recipeIngredients
+      ingredient: recipeIngredients
     });
   }
 }

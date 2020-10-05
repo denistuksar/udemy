@@ -2,5 +2,5 @@
   <div class="shopping-list-div">
     <app-shopping-edit></app-shopping-edit>
   </div>
-  <mat-card href="url" *ngFor="let item of ingredients; let i = index" (click)="onEditItem(i)">{{ item.name }} ({{item.amount}})</mat-card>
+  <mat-card href="url" *ngFor="let item of ingredients | sort: 'name'; let i = index" (click)="onEditItem(i)">{{ item.name }} ({{item.amount}})</mat-card>
 </div>

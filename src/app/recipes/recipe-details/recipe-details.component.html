@@ -5,6 +5,9 @@
   <div class="heading">
     <h1>{{ recipe.name }}</h1>
   </div>
+  <div class="description">
+    <p>{{ recipe.description }}</p>
+  </div>
   <button mat-flat-button [matMenuTriggerFor]="menu" color="primary">
     Manage Recipe <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
@@ -13,14 +16,7 @@
     <button mat-menu-item [routerLink]="['edit']" routerLinkActive="router-link-active" >Edit Recipe</button>
     <button mat-menu-item (click)="onDelete()">Delete Recipe</button>
   </mat-menu>
-  <div class="description">
-    <p>{{ recipe.description }}</p>
-  </div>
-  <div class="ingredients">
-    <ul>
-      <li *ngFor="let item of recipe.ingredient">
+  <mat-card *ngFor="let item of recipe.ingredient" class="ingredients">
         {{ item.name }} - {{ item.amount }}
-      </li>
-    </ul>
-  </div>
+  </mat-card>
 </div>

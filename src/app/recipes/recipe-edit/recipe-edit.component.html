@@ -35,8 +35,13 @@
       id="url"
       name="url"
       formControlName="imagePath"
+      #imagePath
     />
   </mat-form-field>
+
+  <div>
+    <img class="imagePreview" [src]="imagePath.value" alt="imagePreview">
+  </div>
 
   <mat-form-field appearance="outline">
     <mat-label>Description</mat-label>
@@ -50,7 +55,7 @@
     ></textarea>
   </mat-form-field>
 
-  <div class="ingredient" formArrayName="ingredients" *ngFor="let ingredientCtrl of controls; let i = index">
+  <div class="ingredient" formArrayName="ingredient" *ngFor="let ingredientCtrl of controls; let i = index">
     <mat-form-field appearance="outline" class="inputIngredient" [formGroupName]="i">
       <input matInput type="text" id="ingredient" name="ingredient" formControlName="name" />
     </mat-form-field>
@@ -58,7 +63,7 @@
     <mat-form-field appearance="outline" class="inputAmount" [formGroupName]="i">
       <input matInput type="number" id="amount" name="amount" formControlName="amount"/>
     </mat-form-field>
-    <button type="button" class="btnX" mat-flat-button color="warn">X</button>
+    <button type="button" class="btnX" mat-flat-button color="warn" (click)="onDeleteIngredient(i)">X</button>
   </div>
   <div class="addBtn">
     <button type="button" mat-flat-button color="primary" (click)="onAddIngredient()">Add Ingredient</button>
